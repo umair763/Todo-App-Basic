@@ -1,6 +1,36 @@
-.listbar {  
+.scrollableDiv {
+	height: 58vh !important;
+	overflow-y: auto;
+	display: flex;
+	border: none !important;
+	outline: none;
+	box-sizing: border-box;
+	flex-direction: column;
+	margin-right: 5px;
+}
+
+/* For WebKit Browsers */
+.scrollableDiv::-webkit-scrollbar {
+	width: 12px;
+}
+
+.scrollableDiv::-webkit-scrollbar-thumb {
+	background: rgba(5, 103, 189, 0.782);
+	border-radius: 10px;
+}
+
+.scrollableDiv::-webkit-scrollbar-thumb:hover {
+	background: rgba(3, 90, 166, 0.782);
+}
+
+.scrollableDiv::-webkit-scrollbar-track {
+	background: rgb(133, 198, 255);
+	border-radius: 10px;
+}
+
+.listbar {
 	display: grid;
-	width: 90%;
+	width: 95%;
 	padding: 0 15px;
 	font-weight: bold;
 	margin-bottom: 8px;
@@ -14,7 +44,15 @@
 	/* border-bottom: 5px solid rgba(80, 79, 78, 0.852); */
 	font-family: "Caros Light";
 	grid-template-rows: 1fr;
-	grid-template-columns: 60px 4fr 1fr;
+	grid-template-columns: 40px 2fr 1fr;
+}
+
+.scrollableDiv {
+	height: 300px; /* Set a fixed height */
+	overflow-y: auto; /* Enable vertical scrolling */
+	border: 1px solid #ccc; /* Optional: Add a border */
+	padding: 10px; /* Optional: Add padding */
+	box-sizing: border-box; /* Include padding in height calculation */
 }
 
 .radiored {
@@ -93,13 +131,14 @@
 	/* display: flex; */
 	display: grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: 180px 80px 1fr;
+	grid-template-columns: 5fr 80px 1fr;
 	align-items: center;
 	justify-content: space-between;
 	padding-right: 10px;
 	font-weight: bolder !important;
 }
+
 .timendateGap {
-	margin-left: 30%;
-	margin-right: 12x;
+	margin-left: -21%;
+	margin-right: 12px;
 }

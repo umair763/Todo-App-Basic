@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./styles/DisplayTodoList.css";
- 
+
 function DisplayTodoList({ list }) {
 	const [marked, setMarked] = useState(false);
 
-	function handlemarked() {
+	function handleMarked() {
 		setMarked((show) => !show);
 	}
 
 	return (
-		<>
+		<div className="scrollcontainer">
 			<div className="listbar">
 				<input
 					type="radio"
@@ -24,11 +24,11 @@ function DisplayTodoList({ list }) {
 					<input
 						type="checkbox"
 						className="checkbox"
-						onClick={handlemarked}
+						onClick={handleMarked}
 					/>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
