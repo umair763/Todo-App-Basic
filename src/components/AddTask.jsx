@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import './styles/AddTask.css'; 
- 
-function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSearch }) {
+import './styles/AddTask.css';
+
+function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSearch, DeleteAllMarked }) {
+    // function handleAllMarked() {}
     return (
         <>
             <div className="Addtaskcontainer">
@@ -24,6 +25,13 @@ function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSear
                 </button>
                 <button className="deletebtn" onClick={setisDeleteFormVisible}>
                     Delete Task
+                </button>
+                <button
+                    style={{ marginLeft: '12px', marginRight: '-22px' }}
+                    className="deletebtn"
+                    onClick={DeleteAllMarked}
+                >
+                    Delete All Marked
                 </button>
             </div>
         </>

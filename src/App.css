@@ -8,7 +8,6 @@
 		url("https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.svg#Caros Light") format("svg");
 }
 
-
 html,
 body {
 	height: 100%;
@@ -44,6 +43,7 @@ body {
 	border-radius: 15px;
 	padding: 20px;
 	margin-left: 2%;
+	box-shadow: 0 4px 16px rgba(58, 58, 58, 0.66);
 	background: linear-gradient(to bottom right, rgba(148, 6, 230, 0.702), rgba(0, 225, 255, 0.702));
 	box-sizing: border-box;
 	overflow: hidden;
