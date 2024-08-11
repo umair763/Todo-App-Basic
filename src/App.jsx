@@ -60,10 +60,6 @@ function App() {
         );
     }
 
-    function handleAllMarkedDelete() {
-        setAddNewTask((prevTasks) => prevTasks.filter((task) => !task.status));
-    }
-
     let sorted = [...newtask];
     if (sortby === 'Task') {
         sorted = sorted.slice().sort((a, b) => a.task.localeCompare(b.task));
@@ -76,6 +72,16 @@ function App() {
     let searched = sorted;
     if (searchtask) {
         searched = sorted.filter((el) => el.task.toLowerCase().includes(searchtask.toLowerCase()));
+    }
+
+    function toggleTaskStatus(taskName) {
+        setAddNewTask((prevTasks) =>
+            prevTasks.map((task) => (task.task === taskName ? { ...task, status: !task.status } : task))
+        );
+    }
+
+    function handleAllMarkedDelete() {
+        setAddNewTask((Tasks) => Tasks.filter((el) => !el.status));
     }
 
     return (
@@ -94,7 +100,12 @@ function App() {
                             setSearch={setSearchTask}
                             DeleteAllMarked={handleAllMarkedDelete}
                         />
-                        <TodoListParser todolist={sorted} searched={searched} toggleTaskStatus={toggleTaskStatus} />
+                        <TodoListParser
+                            todolist={sorted}
+                            searched={searched}
+                            toggleTaskStatus={toggleTaskStatus}
+                            newtask={newtask}
+                        />
                     </div>
 
                     <div className="right-side">

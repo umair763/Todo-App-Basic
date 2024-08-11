@@ -22,7 +22,6 @@ function AddTaskForm({ SetisAddFormVisible, addTask }) {
         // Return the formatted time
         return `${hours}:${minutes} ${ampm}`;
     }
-
     function handleform(e) {
         e.preventDefault();
 

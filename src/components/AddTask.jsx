@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './styles/AddTask.css';
 
 function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSearch, DeleteAllMarked }) {
-    // function handleAllMarked() {}
     return (
         <>
             <div className="Addtaskcontainer">

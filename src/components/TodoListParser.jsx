@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DisplayTodoList from './DisplayTodoList';
 
-function TodoListParser({ todolist, searched, setAllMarked, toggleTaskStatus }) {
+function TodoListParser({ todolist, searched, newtask, marked, toggleTaskStatus }) {
     return (
         <>
             <div className="scrollableDiv">
@@ -11,7 +11,7 @@ function TodoListParser({ todolist, searched, setAllMarked, toggleTaskStatus }) 
                               list={list}
                               key={i}
                               id={i}
-                              setAllMarked={setAllMarked}
+                              newtask={newtask}
                               toggleTaskStatus={toggleTaskStatus}
                           />
                       ))
@@ -20,7 +20,7 @@ function TodoListParser({ todolist, searched, setAllMarked, toggleTaskStatus }) 
                               list={list}
                               key={i}
                               id={i}
-                              setAllMarked={setAllMarked}
+                              newtask={newtask}
                               toggleTaskStatus={toggleTaskStatus}
                           />
                       ))}

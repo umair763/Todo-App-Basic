@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import './styles/DisplayTodoList.css';
 
-function DisplayTodoList({ list, setAllMarked }) {
-    const [marked, setMarked] = useState(false);
-	
-    function handleMarked() {
-        setMarked((prev) => !prev);
-        toggleTaskStatus(list.task); // Toggle the status in the main list
+function DisplayTodoList({ list, toggleTaskStatus }) {
+    
+    function handleCheckboxChange() {
+        toggleTaskStatus(list.task);
     }
-
 
     return (
         <div className="scrollcontainer">
@@ -19,11 +16,11 @@ function DisplayTodoList({ list, setAllMarked }) {
                         list.color === 'red' ? 'radiored' : list.color === 'yellow' ? 'radioyellow' : 'radiogreen'
                     }`}
                 />
-                <p className={`time ${marked ? 'strikethough' : ''}`}>{list.task}</p>
+                <p className={`time ${list.status ? 'strikethough' : ''}`}>{list.task}</p>
                 <div className="time">
-                    <p className={`${marked ? 'strikethough' : ''} timendateGap`}>{list.date}</p>
-                    <p className={`${marked ? 'strikethough' : ''}`}>{list.time}</p>
-                    <input type="checkbox" className="checkbox" onClick={handleMarked} />
+                    <p className={`${list.status ? 'strikethough' : ''} timendateGap`}>{list.date}</p>
+                    <p className={`${list.status ? 'strikethough' : ''}`}>{list.time}</p>
+                    <input type="checkbox" className="checkbox" checked={list.status} onChange={handleCheckboxChange} />
                 </div>
             </div>
         </div>
@@ -31,3 +28,5 @@ function DisplayTodoList({ list, setAllMarked }) {
 }
 
 export default DisplayTodoList;
+
+// task.id === list.id ? console.log('task.id=', task.id, 'list.id=', list.id) : 'not matched';
