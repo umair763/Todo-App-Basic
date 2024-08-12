@@ -1,145 +1,239 @@
+/* Base Styles (for larger screens, e.g., desktops) */
 .scrollableDiv {
-	height: 58vh !important;
-	overflow-y: auto;
-	display: flex;
-	border: none !important;
-	outline: none;
-	box-sizing: border-box;
-	flex-direction: column;
-	margin-right: 5px;
+    height: 58vh !important;
+    overflow-y: auto;
+    display: flex;
+    border: none !important;
+    outline: none;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-right: 5px;
 }
 
 /* For WebKit Browsers */
 .scrollableDiv::-webkit-scrollbar {
-	width: 12px;
+    width: 12px;
 }
 
 .scrollableDiv::-webkit-scrollbar-thumb {
-	background: rgba(5, 103, 189, 0.782);
-	border-radius: 10px;
+    background: rgba(5, 103, 189, 0.782);
+    border-radius: 10px;
 }
 
 .scrollableDiv::-webkit-scrollbar-thumb:hover {
-	background: rgba(3, 90, 166, 0.782);
+    background: rgba(3, 90, 166, 0.782);
 }
 
 .scrollableDiv::-webkit-scrollbar-track {
-	background: rgb(133, 198, 255);
-	border-radius: 10px;
+    background: rgb(133, 198, 255);
+    border-radius: 10px;
 }
 
 .listbar {
-	display: grid;
-	width: 95%;
-	padding: 0 15px;
-	font-weight: bold;
-	margin-bottom: 8px;
-	margin-left: -1%;
-	/* margin-left: 15%;
-	margin-right: 15%; */
-	border-radius: 15px;
-	justify-content: center;
-	align-items: center;
-	color: rgb(29, 29, 29);
-	background-color: rgba(200, 240, 243, 0.87);
-	/* border-bottom: 5px solid rgba(80, 79, 78, 0.852); */
-	font-family: "Caros Light";
-	grid-template-rows: 1fr;
-	grid-template-columns: 40px 2fr 1fr;
+    display: grid;
+    width: 93%;
+    padding: 0 15px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(29, 29, 29);
+    background-color: rgba(200, 240, 243, 0.87);
+    font-family: 'Caros Light';
+    grid-template-rows: 1fr;
+    grid-template-columns: 40px 2fr 1fr;
 }
 
-.scrollableDiv {
-	height: 300px; /* Set a fixed height */
-	overflow-y: auto; /* Enable vertical scrolling */
-	border: 1px solid #ccc; /* Optional: Add a border */
-	padding: 10px; /* Optional: Add padding */
-	box-sizing: border-box; /* Include padding in height calculation */
+.radiored,
+.radioyellow,
+.radiogreen,
+.checkbox {
+    -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+    -moz-appearance: none; /* Remove default styling in Mozilla browsers */
+    appearance: none; /* Remove default styling in other browsers */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    outline: none;
 }
 
 .radiored {
-	-webkit-appearance: none; /* Remove default styling in WebKit browsers */
-	-moz-appearance: none; /* Remove default styling in Mozilla browsers */
-	appearance: none; /* Remove default styling in other browsers */
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	position: relative;
-	outline: none;
-	background-color: rgba(255, 33, 33, 0.849);
-	border-color: rgba(255, 33, 33, 0.849);
+    background-color: rgba(255, 33, 33, 0.849);
+    border-color: rgba(255, 33, 33, 0.849);
 }
+
 .radioyellow {
-	-webkit-appearance: none; /* Remove default styling in WebKit browsers */
-	-moz-appearance: none; /* Remove default styling in Mozilla browsers */
-	appearance: none; /* Remove default styling in other browsers */
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	position: relative;
-	outline: none;
-	background-color: rgba(252, 252, 27, 0.89);
-	border-color: rgba(252, 252, 27, 0.89);
+    background-color: rgba(252, 252, 27, 0.89);
+    border-color: rgba(252, 252, 27, 0.89);
 }
+
 .radiogreen {
-	-webkit-appearance: none; /* Remove default styling in WebKit browsers */
-	-moz-appearance: none; /* Remove default styling in Mozilla browsers */
-	appearance: none; /* Remove default styling in other browsers */
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	position: relative;
-	outline: none;
-	background-color: rgb(2, 181, 61);
-	border-color: rgb(2, 181, 61);
+    background-color: rgb(2, 181, 61);
+    border-color: rgb(2, 181, 61);
 }
 
 .checkbox {
-	-webkit-appearance: none; /* Remove default styling in WebKit browsers */
-	-moz-appearance: none; /* Remove default styling in Mozilla browsers */
-	appearance: none; /* Remove default styling in other browsers */
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	border: 2px solid #ccc;
-	cursor: pointer;
-	position: relative;
-	border-color: rgba(76, 26, 225, 0.859);
+    border: 2px solid rgba(76, 26, 225, 0.859);
 }
 
 .checkbox:checked {
-	background-color: rgba(87, 31, 255, 0.859);
-	border-color: rgba(87, 31, 255, 0.859);
-	position: relative;
+    background-color: rgba(87, 31, 255, 0.859);
+    border-color: rgba(87, 31, 255, 0.859);
 }
 
 .checkbox:checked::after {
-	content: "✓"; /* Unicode character for tick mark */
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 15px !important;
-	color: white; /* Adjust the color as needed */
+    content: '✓'; /* Unicode character for tick mark */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px !important;
+    color: white; /* Adjust the color as needed */
 }
+
 .strikethough {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
+
 .time {
-	/* display: flex; */
-	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 5fr 80px 1fr;
-	align-items: center;
-	justify-content: space-between;
-	padding-right: 10px;
-	font-weight: bolder !important;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 5fr 80px 1fr;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    font-weight: bolder !important;
 }
 
 .timendateGap {
-	margin-left: -21%;
-	margin-right: 12px;
+    margin-left: -21%;
+    margin-right: 12px;
 }
+/* Media Queries */
+
+/* Small Mobile Devices (280px - 320px) */
+@media screen and (max-width: 320px) {
+    .scrollableDiv {
+        height: 40vh !important;
+        margin-right: 2px;
+        padding: 5px;
+        background-color: green;
+    }
+    p {
+        font-size: 8px !important;
+    }
+
+    .listbar {
+        width: 92%;
+        grid-template-columns: 16px 135px 75px;
+        padding: 0 10px;
+    }
+
+    .radiored,
+    .radioyellow,
+    .radiogreen,
+    .checkbox {
+        margin-left: 8%;
+        width: 6px;
+        height: 6px;
+    }
+
+    .time {
+        grid-template-columns: 1fr 40px 5px;
+    }
+
+    .timendateGap {
+        margin-left: -70%;
+    }
+}
+
+/* Small to Medium Mobile Devices (321px - 480px) */
+/* @media screen and (min-width: 321px) and (max-width: 480px) {
+	.scrollableDiv {
+		height: 45vh !important;
+		margin-right: 3px;
+		padding: 7px;
+	}
+
+	.listbar {
+		grid-template-columns: 35px 1.8fr 0.8fr;
+		font-size: 13px;
+		padding: 0 12px;
+	}
+
+	.radiored, .radioyellow, .radiogreen, .checkbox {
+		width: 16px;
+		height: 16px;
+	}
+
+	.time {
+		grid-template-columns: 4.5fr 70px 1fr;
+		font-size: 13px;
+	}
+
+	.timendateGap {
+		margin-left: -18%;
+	}
+} */
+
+/* Medium Mobile Devices (481px - 767px) */
+/* @media screen and (min-width: 481px) and (max-width: 767px) {
+	.scrollableDiv {
+		height: 50vh !important;
+		margin-right: 4px;
+		padding: 8px;
+	}
+
+	.listbar {
+		grid-template-columns: 40px 2fr 1fr;
+		font-size: 14px;
+		padding: 0 13px;
+	}
+
+	.radiored, .radioyellow, .radiogreen, .checkbox {
+		width: 18px;
+		height: 18px;
+	}
+
+	.time {
+		grid-template-columns: 5fr 75px 1fr;
+		font-size: 14px;
+	}
+
+	.timendateGap {
+		margin-left: -20%;
+	}
+} */
+
+/* Tablets and Small Desktops (768px - 1024px) */
+/* @media screen and (min-width: 768px) and (max-width: 1024px) {
+	.scrollableDiv {
+		height: 55vh !important;
+		margin-right: 5px;
+		padding: 9px;
+	}
+
+	.listbar {
+		grid-template-columns: 40px 2fr 1fr;
+		font-size: 15px;
+		padding: 0 14px;
+	}
+
+	.radiored, .radioyellow, .radiogreen, .checkbox {
+		width: 19px;
+		height: 19px;
+	}
+
+	.time {
+		grid-template-columns: 5fr 80px 1fr;
+		font-size: 15px;
+	}
+
+	.timendateGap {
+		margin-left: -21%;
+	}
+} */

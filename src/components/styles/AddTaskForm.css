@@ -1,3 +1,4 @@
+/* Base Styles (for larger screens, e.g., desktops) */
 .addtask-form {  
     padding: 0 15px;
     margin-left: 10%;
@@ -14,27 +15,15 @@
     background-color: rgb(59, 199, 181);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-.addentrysortby {
-    background-color: rgb(152, 255, 241);
-    border: 2px solid rgb(0, 161, 139);
-    border-radius: 8px;
-    color: rgb(19, 19, 19);
-}
-.writeTask {
-    outline: none;
-    border-radius: 8px;
-    background-color: rgb(152, 255, 241);
-    border: 2px solid rgb(0, 161, 139);
-    color: rgb(19, 19, 19);
-}
-.settime {
+
+.addentrysortby, .writeTask, .settime {
     border-radius: 8px;
     background-color: rgb(152, 255, 241);
     border: 2px solid rgb(0, 161, 139);
     color: rgb(19, 19, 19);
 }
 
-.confirmbtn {
+.confirmbtn, .closebtn {
     border: none;
     color: white;
     font-size: 16px;
@@ -44,18 +33,87 @@
     border-radius: 8px;
     font-family: 'Caros Light';
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.confirmbtn {
     background: linear-gradient(135deg, #7fe565 0%, #0d7d65 100%);
 }
+
 .closebtn {
     width: 50%;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 8px 13px;
-    border-radius: 8px;
-    font-family: 'Caros Light';
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background: linear-gradient(135deg, #ab1a1ac2 0%, #373737ab 100%);
 }
+
+/* Media Queries */
+
+/* Small Mobile Devices (280px - 320px) */
+/* @media screen and (max-width: 320px) {
+    .addtask-form {
+        margin-left: 5%;
+        margin-top: 60%;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        padding: 10px;
+    }
+
+    .confirmbtn, .closebtn {
+        width: 100%;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+} */
+
+/* Small to Medium Mobile Devices (321px - 480px) */
+/* @media screen and (min-width: 321px) and (max-width: 480px) {
+    .addtask-form {
+        margin-left: 7%;
+        margin-top: 58%;
+        width: 110%;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: repeat(5, 1fr);
+        padding: 12px;
+    }
+
+    .confirmbtn, .closebtn {
+        width: 80%;
+        font-size: 15px;
+        padding: 7px 11px;
+    }
+} */
+
+/* Medium Mobile Devices (481px - 767px) */
+/* @media screen and (min-width: 481px) and (max-width: 767px) {
+    .addtask-form {
+        margin-left: 8%;
+        margin-top: 55%;
+        width: 120%;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(5, 1fr);
+        padding: 14px;
+    }
+
+    .confirmbtn, .closebtn {
+        width: 70%;
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+} */
+
+/* Tablets and Small Desktops (768px - 1024px) */
+/* @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .addtask-form {
+        margin-left: 9%;
+        margin-top: 50%;
+        width: 130%;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(5, 1fr);
+        padding: 14px;
+    }
+
+    .confirmbtn, .closebtn {
+        width: 60%;
+        font-size: 16px;
+        padding: 8px 13px;
+    }
+} */

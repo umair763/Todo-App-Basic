@@ -1,3 +1,4 @@
+/* Base Styles (for larger screens, e.g., desktops) */
 @font-face {
     font-family: 'Caros Light';
     src: url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.eot');
@@ -55,4 +56,87 @@ body {
     height: 90vh !important;
     border-left: 5px solid white;
     border-radius: 18px;
+}
+
+/* Media Queries */
+
+/* Small Mobile Devices (280px - 320px) */
+@media screen and (max-width: 320px) {
+    .grid {
+        grid-template-columns: 1fr;
+        margin-right: 5%;
+    }
+
+    .backgroundForm {
+        width: 90%;
+        height: calc(100vh - 30px);
+        margin: 5%;
+        padding: 10px;
+    }
+
+    .right-side {
+        height: 70vh !important;
+        border-left: 3px solid white;
+    }
+}
+
+/* Small to Medium Mobile Devices (321px - 480px) */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        margin-right: 5%;
+    }
+
+    .backgroundForm {
+        width: 90%;
+        height: calc(100vh - 40px);
+        margin: 5%;
+        padding: 15px;
+    }
+
+    .right-side {
+        height: 80vh !important;
+        border-left: 4px solid white;
+    }
+}
+
+/* Medium Mobile Devices (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr 250px;
+        margin-right: 10%;
+    }
+
+    .backgroundForm {
+        width: 95%;
+        height: calc(100vh - 50px);
+        margin: 2.5%;
+        padding: 20px;
+    }
+
+    .right-side {
+        height: 85vh !important;
+        border-left: 4px solid white;
+    }
+}
+
+/* Tablets and Small Desktops (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 300px;
+        margin-right: 10%;
+        
+    }
+
+    .backgroundForm {
+        width: calc(100% - 40px);
+        height: calc(100vh - 50px);
+        margin: 2%;
+        padding: 25px;
+    }
+
+    .right-side {
+        height: 90vh !important;
+        border-left: 5px solid white;
+    }
 }

@@ -1,73 +1,167 @@
+/* Base Styles (for larger screens, e.g., desktops) */
 .Addtaskcontainer { 
-	display: grid; 
-	width: 92%;
-	padding: 0 15px;
-	font-weight: bold; 
-	/* margin-left: 15%;
-	margin-right: 15%; */
-	margin-bottom: 2%;
-	border-radius: 15px;
-	color: rgb(29, 29, 29);
-	background-color: rgba(200, 240, 243, 0.87);
-	font-family: "Caros Light";
-	grid-template-rows: 1fr;
-	grid-template-columns: 80px 2fr 1fr;
+    display: grid; 
+    width: 92%;
+    padding: 0 15px;
+    font-weight: bold; 
+    margin-bottom: 2%;
+    border-radius: 15px;
+    color: rgb(29, 29, 29);
+    background-color: rgba(200, 240, 243, 0.87);
+    font-family: "Caros Light";
+    grid-template-rows: 1fr;
+    grid-template-columns: 80px 2fr 1fr;
 }
+
 .searchbar {
-	font-family: "Caros Light";
-	padding: 16px 15px;
-	background-color: transparent;
-	outline: none;
-	font-size: 16px;
-	border: none;
-	width: 100%; /* Make it take full width of its grid area */
+    font-family: "Caros Light";
+    padding: 16px 15px;
+    background-color: transparent;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    width: 100%;
 }
+
 .sortby {
-	height: 40px;
-	padding: 8px;
-	outline: none;
-	color: rgb(23, 23, 23);
-	background-color: rgba(200, 240, 243, 0.87);
-	border: 2px solid rgba(25, 217, 231, 0.87);
-	border-radius: 15px;
-	margin-top: 6px;
-	margin-left: 100px;
+    height: 40px;
+    padding: 8px;
+    outline: none;
+    color: rgb(23, 23, 23);
+    background-color: rgba(200, 240, 243, 0.87);
+    border: 2px solid rgba(25, 217, 231, 0.87);
+    border-radius: 15px;
+    margin-top: 6px;
+    margin-left: 100px;
 }
 
 .buttons {
-	display: flex;
-	justify-content: flex-end;
-	width: 90%;
-	padding: 0 15px;
-	font-weight: bold;
-	/* margin-left: 15%;
-	margin-right: 15%; */
-	margin-bottom: 6%;
-	background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    padding: 0 15px;
+    font-weight: bold;
+    margin-bottom: 6%;
+    background-color: transparent;
 }
 
 .addbtn {
-	padding: 10px 20px;
-	margin-right: 12px;
-	border: none;
-	border-radius: 8px;
-	font-family: "Caros Light";
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+    padding: 10px 20px;
+    margin-right: 12px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Caros Light";
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
 }
+
 .deletebtn {
-	padding: 10px 20px;
-	border: none;
-	border-radius: 8px;
-	font-family: "Caros Light";
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Caros Light";
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
+
+/* Media Queries */
+
+/* Small Mobile Devices (280px - 320px) */
+/* @media screen and (max-width: 320px) {
+    .Addtaskcontainer {
+        width: 100%;
+        grid-template-columns: 60px 1.5fr 1fr;
+        padding: 0 10px;
+    }
+
+    .sortby {
+        margin-left: 50px;
+    }
+
+    .buttons {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .addbtn, .deletebtn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+} */
+
+/* Small to Medium Mobile Devices (321px - 480px) */
+/* @media screen and (min-width: 321px) and (max-width: 480px) {
+    .Addtaskcontainer {
+        width: 100%;
+        grid-template-columns: 70px 1.7fr 1fr;
+        padding: 0 12px;
+    }
+
+    .sortby {
+        margin-left: 70px;
+    }
+
+    .buttons {
+        width: 95%;
+        padding: 0 12px;
+    }
+
+    .addbtn, .deletebtn {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+} */
+
+/* Medium Mobile Devices (481px - 767px) */
+/* @media screen and (min-width: 481px) and (max-width: 767px) {
+    .Addtaskcontainer {
+        width: 90%;
+        grid-template-columns: 80px 2fr 1fr;
+        padding: 0 14px;
+    }
+
+    .sortby {
+        margin-left: 80px;
+    }
+
+    .buttons {
+        width: 90%;
+        padding: 0 14px;
+    }
+
+    .addbtn, .deletebtn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+} */
+
+/* Tablets and Small Desktops (768px - 1024px) */
+/* @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .Addtaskcontainer {
+        width: 92%;
+        grid-template-columns: 80px 2fr 1fr;
+        padding: 0 15px;
+    }
+
+    .sortby {
+        margin-left: 100px;
+    }
+
+    .buttons {
+        width: 90%;
+        padding: 0 15px;
+    }
+
+    .addbtn, .deletebtn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+} */
