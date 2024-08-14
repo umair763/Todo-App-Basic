@@ -4,7 +4,7 @@
 	margin-left: 10%; 
 	border-radius: 15px;
 	row-gap: 12px;
-	padding: 14px;
+	padding: 14px; 
 	display: grid;
 	margin-top: 55%;
 	width: 130%;
@@ -58,4 +58,38 @@
     font-family: 'Caros Light';
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background: linear-gradient(135deg, #ab1a1af2 0%, #454743cf 100%);
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .addtask-form2 {
+        padding: 15px;
+    }
+
+    .addentrysortby2, .writeTask2, .settime2 {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .confirmbtn2, .closebtnn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .addtask-form2 {
+        padding: 10px;
+    }
+
+    .addentrysortby2, .writeTask2, .settime2 {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    .confirmbtn2, .closebtnn {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
 }

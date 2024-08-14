@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './styles/AddTask.css';
- 
+   
 function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSearch, DeleteAllMarked }) {
     return (
         <>
@@ -15,7 +15,7 @@ function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSear
                 <select className="sortby" onChange={(e) => setSort(e.target.value)}>
                     <option>Sort by</option>
                     <option>Task</option>
-                    <option>Time</option>
+                    <option>Important</option>
                 </select>
             </div>
             <div className="buttons">

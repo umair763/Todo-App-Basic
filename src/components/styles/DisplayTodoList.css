@@ -113,44 +113,43 @@
     margin-left: -21%;
     margin-right: 12px;
 }
-/* Media Queries */
 
-/* Small Mobile Devices (280px - 320px) */
-@media screen and (max-width: 320px) {
-    .scrollableDiv {
-        height: 40vh !important;
-        margin-right: 2px;
-        padding: 5px;
-        background-color: green;
-    }
-    p {
-        font-size: 8px !important;
-    }
-
+@media screen and (min-width: 280px) and (max-width: 300px) {
     .listbar {
-        width: 92%;
-        grid-template-columns: 16px 135px 75px;
-        padding: 0 10px;
+        width: 98% !important;
+        padding: 0;
+        margin-right: 1px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 20px 108px 120px;
+        font-size: 10px !important;
     }
 
     .radiored,
     .radioyellow,
     .radiogreen,
     .checkbox {
-        margin-left: 8%;
-        width: 6px;
-        height: 6px;
+        width: 10px;
+        height: 10px;
+    }
+    .checkbox{
+        margin-left: -12%;
+    }
+
+    .checkbox:checked::after {
+        font-size: 10px !important;
     }
 
     .time {
-        grid-template-columns: 1fr 40px 5px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 10px 50px 5px;
+        padding-right: 8px !important;
     }
 
     .timendateGap {
-        margin-left: -70%;
+        margin-left: -270%;
+        margin-right: -26px;
     }
 }
-
 /* Small to Medium Mobile Devices (321px - 480px) */
 /* @media screen and (min-width: 321px) and (max-width: 480px) {
 	.scrollableDiv {

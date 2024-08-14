@@ -1,8 +1,7 @@
-/* Base Styles (for larger screens, e.g., desktops) */
 .addtask-form {  
     padding: 0 15px;
     margin-left: 10%;
-    border-radius: 15px;
+    border-radius: 15px; 
     row-gap: 12px;
     padding: 14px;
     display: grid;
@@ -42,7 +41,42 @@
 .closebtn {
     width: 50%;
     background: linear-gradient(135deg, #ab1a1ac2 0%, #373737ab 100%);
+
 }
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .addtask-form {
+        padding: 15px;
+    }
+
+    .addentrysortby, .writeTask, .settime {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .confirmbtn, .closebtn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .addtask-form {
+        padding: 10px;
+    }
+
+    .addentrysortby, .writeTask, .settime {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    .confirmbtn, .closebtn {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
+
 
 /* Media Queries */
 

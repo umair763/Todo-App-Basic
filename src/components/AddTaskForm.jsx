@@ -6,24 +6,25 @@ function AddTaskForm({ SetisAddFormVisible, addTask }) {
     const [task, setTask] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
+
     function convertTo12HourFormat(time) {
-        // Split the time into hours and minutes
         let [hours, minutes] = time.split(':');
-
-        // Convert hours to a number
         hours = parseInt(hours);
-
-        // Determine AM or PM suffix
         const ampm = hours >= 12 ? 'PM' : 'AM';
-
-        // Convert hours from 24-hour format to 12-hour format
         hours = hours % 12 || 12;
-
-        // Return the formatted time
         return `${hours}:${minutes} ${ampm}`;
     }
+
+    function formatDateToPakistani(date) {
+        const [year, month, day] = date.split('-');
+        return `${day}-${month}-${year}`;
+    }
+
     function handleform(e) {
         e.preventDefault();
+
+        // Format the date string into Pakistani format
+        // const DateFormatted = formatDateToPakistani(date);
 
         const newTaskobj = {
             color,
@@ -32,15 +33,18 @@ function AddTaskForm({ SetisAddFormVisible, addTask }) {
             time,
             status: false,
         };
+
         console.log(newTaskobj);
+
         if (color !== '' && task !== '' && date !== '' && time !== '') {
             addTask(newTaskobj);
             setColor('');
             setTask('');
-            // setDate("");
-            // setTime("");
+            // setDate('');
+            // setTime('');
         }
     }
+
     return (
         <>
             <form className="addtask-form" onSubmit={handleform}>
@@ -60,7 +64,7 @@ function AddTaskForm({ SetisAddFormVisible, addTask }) {
                     type="date"
                     // value={date}
                     className="settime"
-                    onChange={(e) => setDate(e.target.value)}
+                    onChange={(e) => setDate(formatDateToPakistani(e.target.value))}
                 />
 
                 <label>Set time</label>

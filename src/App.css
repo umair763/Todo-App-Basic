@@ -1,39 +1,24 @@
-/* Base Styles (for larger screens, e.g., desktops) */
 @font-face {
     font-family: 'Caros Light';
     src: url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.eot');
     src: url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.eot?#iefix') format('embedded-opentype'),
-        url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.woff2') format('woff2'),
-        url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.woff') format('woff'),
-        url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.ttf') format('truetype'),
-        url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.svg#Caros Light') format('svg');
+         url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.woff2') format('woff2'),
+         url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.woff') format('woff'),
+         url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.ttf') format('truetype'),
+         url('https://db.onlinewebfonts.com/t/9180dec2cdd1711edd6b8d86954aae05.svg#Caros Light') format('svg');
 }
 
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
-    background: linear-gradient(to bottom right, rgba(0, 225, 255, 0.702), rgba(148, 6, 230, 0.702));
+    background: linear-gradient(to bottom right, rgba(0, 225, 255, 0.7), rgba(148, 6, 230, 0.7));
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden; /* Prevent body from scrolling */
-}
-
-.grid {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 300px;
-    margin-right: 13%;
-}
-
-.text {
-    padding-left: 10px;
-    font-weight: 700;
-    color: rgb(253, 148, 67);
     font-family: 'Caros Light', sans-serif;
 }
 
@@ -42,101 +27,93 @@ body {
     width: calc(100% - 50px);
     border-radius: 15px;
     padding: 20px;
-    margin-top: 1.5%;
-    margin-left: 1.5%;
-    box-shadow: 0 4px 18px rgba(44, 44, 44, 0.594);
-    background: linear-gradient(to bottom right, rgba(148, 6, 230, 0.702), rgba(0, 225, 255, 0.702));
+    margin: 1.5%;
+    box-shadow: 0 4px 18px rgba(44, 44, 44, 0.6);
+    background: linear-gradient(to bottom right, rgba(148, 6, 230, 0.7), rgba(0, 225, 255, 0.7));
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 10px;
+    margin-right: 13%;
+}
+
+.text {
+    padding-left: 10px;
+    font-weight: 700;
+    color: rgb(253, 148, 67);
+}
+
 .right-side {
-    height: 90vh !important;
+    height: 90vh;
     border-left: 5px solid white;
     border-radius: 18px;
 }
 
-/* Media Queries */
-
-/* Small Mobile Devices (280px - 320px) */
-@media screen and (max-width: 320px) {
+/* Small Screens (280px - 653px) */
+@media screen and (min-width: 280px) and (max-width: 300px) {
     .grid {
         grid-template-columns: 1fr;
-        margin-right: 5%;
+    }
+
+    .right-side {
+        display: none;
     }
 
     .backgroundForm {
-        width: 90%;
-        height: calc(100vh - 30px);
-        margin: 5%;
+        margin-left: 1%;
+        width: 96%;
         padding: 10px;
     }
 
-    .right-side {
-        height: 70vh !important;
-        border-left: 3px solid white;
+    .text h1 {
+        font-size: 1.5rem;
+    }
+
+    .text h3 {
+        font-size: 1rem;
     }
 }
 
-/* Small to Medium Mobile Devices (321px - 480px) */
-@media screen and (min-width: 321px) and (max-width: 480px) {
+/* Medium Screens (654px - 900px) */
+@media only screen and (min-width: 654px) and (max-width: 900px) {
     .grid {
-        grid-template-columns: 1fr;
-        margin-right: 5%;
-    }
-
-    .backgroundForm {
-        width: 90%;
-        height: calc(100vh - 40px);
-        margin: 5%;
-        padding: 15px;
+        grid-template-columns: 1fr 200px;
     }
 
     .right-side {
-        height: 80vh !important;
-        border-left: 4px solid white;
+        border-left-width: 3px;
+    }
+
+    .text h1 {
+        font-size: 2rem;
+    }
+
+    .text h3 {
+        font-size: 1.2rem;
     }
 }
 
-/* Medium Mobile Devices (481px - 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-    .grid {
-        grid-template-columns: 1fr 250px;
-        margin-right: 10%;
-    }
-
-    .backgroundForm {
-        width: 95%;
-        height: calc(100vh - 50px);
-        margin: 2.5%;
-        padding: 20px;
-    }
-
-    .right-side {
-        height: 85vh !important;
-        border-left: 4px solid white;
-    }
-}
-
-/* Tablets and Small Desktops (768px - 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* Large Screens (901px and above) */
+@media only screen and (min-width: 901px) {
     .grid {
         grid-template-columns: 1fr 300px;
-        margin-right: 10%;
-        
-    }
-
-    .backgroundForm {
-        width: calc(100% - 40px);
-        height: calc(100vh - 50px);
-        margin: 2%;
-        padding: 25px;
     }
 
     .right-side {
-        height: 90vh !important;
-        border-left: 5px solid white;
+        border-left-width: 5px;
+    }
+
+    .text h1 {
+        font-size: 2.5rem;
+    }
+
+    .text h3 {
+        font-size: 1.5rem;
     }
 }

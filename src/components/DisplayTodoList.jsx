@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './styles/DisplayTodoList.css';
-
+ 
 function DisplayTodoList({ list, toggleTaskStatus }) {
     
     function handleCheckboxChange() {

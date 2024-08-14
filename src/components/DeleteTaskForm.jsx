@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles/DeleteTaskForm.css";
-
+ 
 function DeleteTaskForm({ setisDeleteFormVisible, deleteTask }) {
 	const [Deltask, setDelTask] = useState("");
 	const [DelColor, setDelColor] = useState("");
