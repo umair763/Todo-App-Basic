@@ -156,21 +156,22 @@ function App() {
                             newtask={newtask}
                         />
                     </div>
-
-                    <div className="right-side">
-                        {isAddFormVisible ? (
-                            <AddTaskForm addTask={handleAddNewTasks} SetisAddFormVisible={handleisAddFormVisible} />
-                        ) : (
-                            ''
-                        )}
-                        {isDeleteFormVisible ? (
-                            <DeleteTaskForm
-                                deleteTask={handleDeleteTask}
-                                setisDeleteFormVisible={handleisDeleteFormVisible}
-                            />
-                        ) : (
-                            ''
-                        )}
+                    <div className="respovsive">
+                        <div className="right-side">
+                            {isAddFormVisible ? (
+                                <AddTaskForm addTask={handleAddNewTasks} SetisAddFormVisible={handleisAddFormVisible} />
+                            ) : (
+                                ''
+                            )}
+                            {isDeleteFormVisible ? (
+                                <DeleteTaskForm
+                                    deleteTask={handleDeleteTask}
+                                    setisDeleteFormVisible={handleisDeleteFormVisible}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

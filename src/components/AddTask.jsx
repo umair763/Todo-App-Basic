@@ -5,7 +5,7 @@ function AddTask({ SetisAddFormVisible, setisDeleteFormVisible, setSort, setSear
     return (
         <>
             <div className="Addtaskcontainer">
-                <p>🔴🟡🟢</p>
+                <p className='rgbcolors'>🔴🟡🟢</p>
                 <input
                     type="text"
                     className="searchbar"

@@ -1,7 +1,7 @@
-.addtask-form {  
+.addtask-form {
     padding: 0 15px;
     margin-left: 10%;
-    border-radius: 15px; 
+    border-radius: 15px;
     row-gap: 12px;
     padding: 14px;
     display: grid;
@@ -15,14 +15,17 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.addentrysortby, .writeTask, .settime {
+.addentrysortby,
+.writeTask,
+.settime {
     border-radius: 8px;
     background-color: rgb(152, 255, 241);
     border: 2px solid rgb(0, 161, 139);
     color: rgb(19, 19, 19);
 }
 
-.confirmbtn, .closebtn {
+.confirmbtn,
+.closebtn {
     border: none;
     color: white;
     font-size: 16px;
@@ -41,21 +44,67 @@
 .closebtn {
     width: 50%;
     background: linear-gradient(135deg, #ab1a1ac2 0%, #373737ab 100%);
-
 }
 /* Media Queries for Responsiveness */
+
+@media screen and (min-width: 280px) and (max-width: 300px) {
+    .respovsive {
+        position: absolute;
+        transform: translate(-50, -50%);
+        top: 32%;
+        left: -4%;
+        font-size: 12px;
+    }
+    .addtask-form {
+        padding: 0 10px !important;
+        border-radius: 15px;
+        row-gap: 6px;
+        display: grid;
+        margin-top: 55%;
+        width: 128%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr !important;
+    }
+
+    .addentrysortby,
+    .writeTask,
+    .settime {
+        margin-top: -3%;
+        margin-bottom: -2%;
+    }
+
+    .confirmbtn,
+    .closebtn {
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+        border-radius: 6px;
+    }
+
+    .confirmbtn {
+        margin-top: 5px;
+        margin-bottom: 1px;
+    }
+
+    .closebtn {
+        margin-bottom: 5px !important;
+        width: 100%;
+    }
+}
 
 @media (max-width: 768px) {
     .addtask-form {
         padding: 15px;
     }
 
-    .addentrysortby, .writeTask, .settime {
+    .addentrysortby,
+    .writeTask,
+    .settime {
         font-size: 0.9rem;
         padding: 8px;
     }
 
-    .confirmbtn, .closebtn {
+    .confirmbtn,
+    .closebtn {
         padding: 8px;
         font-size: 0.9rem;
     }
@@ -66,17 +115,19 @@
         padding: 10px;
     }
 
-    .addentrysortby, .writeTask, .settime {
+    .addentrysortby,
+    .writeTask,
+    .settime {
         font-size: 0.8rem;
         padding: 6px;
     }
 
-    .confirmbtn, .closebtn {
+    .confirmbtn,
+    .closebtn {
         padding: 6px;
         font-size: 0.8rem;
     }
 }
-
 
 /* Media Queries */
 

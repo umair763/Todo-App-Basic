@@ -114,10 +114,16 @@
     margin-right: 12px;
 }
 
+/* Responsive from 280 to 300 */
 @media screen and (min-width: 280px) and (max-width: 300px) {
+    .scrollableDiv {
+        height: 30vh !important;
+        margin-left: -3px;
+    }
     .listbar {
-        width: 98% !important;
+        width: 95% !important;
         padding: 0;
+        margin-left: 2px;
         margin-right: 1px;
         grid-template-rows: 1fr;
         grid-template-columns: 20px 108px 120px;
@@ -131,7 +137,49 @@
         width: 10px;
         height: 10px;
     }
-    .checkbox{
+    .checkbox {
+        margin-left: -85% !important;
+    }
+
+    .checkbox:checked::after {
+        font-size: 10px !important;
+    }
+
+    .time {
+        grid-template-rows: 1fr;
+        grid-template-columns: 10px 50px 5px;
+        padding-right: 8px !important;
+    }
+
+    .timendateGap {
+        margin-left: -270%;
+        margin-right: -26px;
+    }
+}
+
+/* Responsive from 301 to 3400 */
+@media screen and (min-width: 301px) and (max-width: 340px) {
+    .scrollableDiv {
+        margin-left: -5px !important;
+    }
+    .listbar {
+        width: 96% !important;
+        padding: 0;
+        margin-left: 2px;
+        margin-right: 1px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 22px 110px 120px;
+        font-size: 10px !important;
+    }
+
+    .radiored,
+    .radioyellow,
+    .radiogreen,
+    .checkbox {
+        width: 10px;
+        height: 10px;
+    }
+    .checkbox {
         margin-left: -12%;
     }
 
@@ -150,89 +198,45 @@
         margin-right: -26px;
     }
 }
-/* Small to Medium Mobile Devices (321px - 480px) */
-/* @media screen and (min-width: 321px) and (max-width: 480px) {
-	.scrollableDiv {
-		height: 45vh !important;
-		margin-right: 3px;
-		padding: 7px;
-	}
 
-	.listbar {
-		grid-template-columns: 35px 1.8fr 0.8fr;
-		font-size: 13px;
-		padding: 0 12px;
-	}
+/* Responsive from 341 to 600 */
+@media screen and (min-width: 341px) and (max-width: 600px) {
+    .scrollableDiv {
+        margin-left: -5px !important;
+    }
+    .listbar {
+        width: 96% !important;
+        padding: 0;
+        margin-left: 2px;
+        margin-right: 1px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 25px 1fr 1fr;
+        font-size: 10px !important;
+    }
 
-	.radiored, .radioyellow, .radiogreen, .checkbox {
-		width: 16px;
-		height: 16px;
-	}
+    .radiored,
+    .radioyellow,
+    .radiogreen,
+    .checkbox {
+        width: 10px;
+        height: 10px;
+    }
+    .checkbox {
+        margin-left: -12%;
+    }
 
-	.time {
-		grid-template-columns: 4.5fr 70px 1fr;
-		font-size: 13px;
-	}
+    .checkbox:checked::after {
+        font-size: 10px !important;
+    }
 
-	.timendateGap {
-		margin-left: -18%;
-	}
-} */
+    .time {
+        grid-template-rows: 1fr;
+        grid-template-columns: 10px 50px 5px;
+        padding-right: 8px !important;
+    }
 
-/* Medium Mobile Devices (481px - 767px) */
-/* @media screen and (min-width: 481px) and (max-width: 767px) {
-	.scrollableDiv {
-		height: 50vh !important;
-		margin-right: 4px;
-		padding: 8px;
-	}
-
-	.listbar {
-		grid-template-columns: 40px 2fr 1fr;
-		font-size: 14px;
-		padding: 0 13px;
-	}
-
-	.radiored, .radioyellow, .radiogreen, .checkbox {
-		width: 18px;
-		height: 18px;
-	}
-
-	.time {
-		grid-template-columns: 5fr 75px 1fr;
-		font-size: 14px;
-	}
-
-	.timendateGap {
-		margin-left: -20%;
-	}
-} */
-
-/* Tablets and Small Desktops (768px - 1024px) */
-/* @media screen and (min-width: 768px) and (max-width: 1024px) {
-	.scrollableDiv {
-		height: 55vh !important;
-		margin-right: 5px;
-		padding: 9px;
-	}
-
-	.listbar {
-		grid-template-columns: 40px 2fr 1fr;
-		font-size: 15px;
-		padding: 0 14px;
-	}
-
-	.radiored, .radioyellow, .radiogreen, .checkbox {
-		width: 19px;
-		height: 19px;
-	}
-
-	.time {
-		grid-template-columns: 5fr 80px 1fr;
-		font-size: 15px;
-	}
-
-	.timendateGap {
-		margin-left: -21%;
-	}
-} */
+    .timendateGap {
+        margin-left: -270%;
+        margin-right: -26px;
+    }
+}

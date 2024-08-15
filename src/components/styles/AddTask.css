@@ -69,32 +69,32 @@
     cursor: pointer;
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
-/* Media Queries for Responsiveness */
 
+/* Media Queries for Responsiveness */
+/* Small Screens (280px - 300px) */
 @media screen and (min-width: 280px) and (max-width: 300px) {
+    .rgbcolors {
+        font-size: 12px;
+    }
+
     .Addtaskcontainer {
         width: 88%;
         padding: 0 8px;
         margin-bottom: 2%;
-        border-radius: 15px;
+        margin-left: -1%;
         grid-template-columns: 80px 2fr 1fr;
     }
 
     .searchbar {
-        font-family: 'Caros Light';
-        padding: 16px 15px;
-        background-color: transparent;
-        outline: none;
-        font-size: 16px;
-        border: none;
-        width: 100%;
+        padding: 0 5px;
+        font-size: 12px !important;
     }
-
     .sortby {
         height: 30px;
         padding: 2px;
         border-radius: 15px;
-        margin-left: 150px !important;
+        font-size: 12px !important;
+        margin-left: 155px !important;
         margin-right: 15px !important;
     }
     .buttons {
@@ -115,42 +115,53 @@
     }
 }
 
-@media only screen and (max-width: 653px) {
+/* Small Screens (301px - 600px) */
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .rgbcolors {
+        font-size: 12px;
+    }
+
+    .Addtaskcontainer {
+        padding: 0 8px;
+        margin-bottom: 2%;
+        margin-left: -1%;
+        grid-template-columns: 80px 2fr 1fr 1fr;
+    }
+
+    .searchbar {
+        padding: 0 5px;
+        font-size: 12px !important;
+    }
+    .sortby {
+        height: 30px;
+        padding: 2px;
+        border-radius: 15px;
+        font-size: 12px !important;
+        margin-left: 155px !important;
+        margin-right: 15px !important;
+    }
     .buttons {
-        flex-direction: column;
-        gap: 10px;
+        display: grid !important;
+        margin-left: 5px;
+        width: 83%;
+        column-gap: 0 !important;
+        grid-template-rows: 1fr;
+        grid-template-columns: 80px 80px 80px;
     }
 
     .addbtn,
     .deletebtn {
-        font-size: 0.9rem;
+        border-radius: 6px !important;
+        padding: 1px 4px 1px 4px;
+        width: 70px !important;
+        font-size: 10px !important;
     }
 }
 
-@media (max-width: 480px) {
-    .searchbar {
-        padding: 10px;
-        font-size: 14px;
-    }
 
-    .Addtaskcontainer {
-        padding: 5px;
-    }
-}
 
 @media (max-width: 768px) {
     .Addtaskcontainer {
-        grid-template-columns: 1fr;
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .addbtn,
-    .deletebtn {
-        width: 100%;
-        margin-bottom: 10px;
+        grid-template-columns: 1fr; 
     }
 }

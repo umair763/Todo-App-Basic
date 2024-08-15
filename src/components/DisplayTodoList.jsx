@@ -16,7 +16,7 @@ function DisplayTodoList({ list, toggleTaskStatus }) {
                         list.color === 'red' ? 'radiored' : list.color === 'yellow' ? 'radioyellow' : 'radiogreen'
                     }`}
                 />
-                <p className={`time ${list.status ? 'strikethough' : ''}`}>{list.task}</p>
+                <p className={`time text-container ${list.status ? 'strikethough' : ''}`}>{list.task}</p>
                 <div className="time">
                     <p className={`${list.status ? 'strikethough' : ''} timendateGap`}>{list.date}</p>
                     <p className={`${list.status ? 'strikethough' : ''}`}>{list.time}</p>
