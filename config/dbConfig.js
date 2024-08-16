@@ -6,7 +6,7 @@ dotenv.config();
 const config = {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    server: process.env.DB_HOST, // Ensure this is a valid string
+    server: process.env.DB_HOST,
     database: process.env.DB_NAME,
     port: parseInt(process.env.DB_PORT, 10) || 1433,
     options: {
@@ -29,8 +29,3 @@ const poolPromise = sql
     });
 
 export default poolPromise;
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_NAME:', process.env.DB_NAME);
-console.log('DB_PORT:', process.env.DB_PORT);
