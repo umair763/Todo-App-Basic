@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import sql from 'mssql';
 
-dotenv.config();
+dotenv.config(); // This should be at the top
 
 const config = {
     user: process.env.DB_USER,

@@ -1,62 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import TodoListParser from './components/TodoListParser';
 import AddTask from './components/AddTask';
 import AddTaskForm from './components/AddTaskForm';
 import DeleteTaskForm from './components/DeleteTaskForm';
 
-const todolist = [
-    {
-        color: 'yellow',
-        task: 'Demo Task',
-        date: '2024-07-21',
-        date: '21-07-2024',
-        time: '10:00 AM',
-        status: false,
-    },
-    {
-        color: 'yellow',
-        task: 'UI/UX Design Meeting (Demo)',
-        date: '22-08-2024',
-        time: '11:00 AM',
-        status: false,
-    },
-    {
-        color: 'green',
-        task: 'Project Component Development (Demo)',
-        date: '12-09-2024',
-        time: '05:00 AM',
-        status: false,
-    },
-    {
-        color: 'red',
-        task: 'Project Component  (Demo)',
-        date: '04-09-2024',
-        time: '09:00 AM',
-        status: false,
-    },
-    {
-        color: 'green',
-        task: 'Development (Demo)',
-        date: '04-09-2024',
-        time: '01:00 PM',
-        status: false,
-    },
-    {
-        color: 'green',
-        task: 'Development (Demo)',
-        date: '11-07-2024',
-        time: '11:00 AM',
-        status: false,
-    },
-];
-
 function App() {
     const [isAddFormVisible, setisAddFormVisible] = useState(false);
     const [isDeleteFormVisible, setisDeleteFormVisible] = useState(false);
-    const [newtask, setAddNewTask] = useState(todolist);
+    const [newtask, setAddNewTask] = useState([]);
     const [sortby, setSortBy] = useState('sortby');
     const [searchtask, setSearchTask] = useState('');
+
+    useEffect(() => {
+        // Fetch tasks from the database
+        fetch('/api/tasks')
+            .then((res) => res.json())
+            .then((data) => setAddNewTask(data))
+            .catch((err) => console.error('Error fetching tasks:', err));
+    }, []);
 
     function handleisAddFormVisible() {
         setisAddFormVisible((x) => !x);
@@ -69,7 +31,32 @@ function App() {
     }
 
     function handleAddNewTasks(task) {
-        setAddNewTask((newtask) => [...newtask, task]);
+        // Post new task to the database
+        fetch('/api/tasks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(task),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success) {
+                    setAddNewTask((newtask) => [...newtask, task]);
+                }
+            })
+            .catch((err) => console.error('Error adding task:', err));
+    }
+    ////////////////////////////////////////////////////////////////////
+
+    function handleDeleteTask(task) {
+        setAddNewTask(newtask.filter((el) => el.task !== task));
+    }
+
+    function toggleTaskStatus(taskName) {
+        setAddNewTask((prevTasks) =>
+            prevTasks.map((task) => (task.task === taskName ? { ...task, status: !task.status } : task))
+        );
     }
 
     function handleDeleteTask(task) {

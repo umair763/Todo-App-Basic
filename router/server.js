@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const sql = require('mssql');
 const dbConfig = require('../config/dbconfig'); // Adjust the path if necessary
+=======
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import sql from 'mssql';
+import dbConfig from '../config/dbConfig.js'; // Ensure the correct path and extension
+>>>>>>> 7bf9621b72c3856f30ca046c17e3c9c969429de3
 
 const app = express();
 app.use(bodyParser.json());
