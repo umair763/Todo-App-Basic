@@ -12,6 +12,15 @@ function App() {
     const [sortby, setSortBy] = useState('sortby');
     const [searchtask, setSearchTask] = useState('');
 
+    const [data, setData] = useState('AOA!');
+
+    useEffect(() => {
+        (async function () {
+            const { text } = await (await fetch(`/api/message`)).json();
+            setData(text);
+        })();
+    });
+
     useEffect(() => {
         // Fetch tasks from the database
         fetch('/api/tasks')
@@ -127,6 +136,7 @@ function App() {
                     <div className="div-1">
                         <div className="text">
                             <h1>Todo App</h1>
+                            {data}
                             <h3>To-Do lists help us break life into small steps.</h3>
                         </div>
                         <AddTask
