@@ -29,5 +29,15 @@
             "mode": "production"
         }
     },
-    "entities": {}
+    "entities": {
+        "tasks": {
+            "source": "Tasks",
+            "permissions": [
+                {
+                    "actions": ["read"],
+                    "role": "anonymous"
+                }
+            ]
+        }
+    }
 }
