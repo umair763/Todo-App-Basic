@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import sql from 'mssql';
 import dbConfig from '../config/dbConfig.js'; // Ensure the correct path and extension
-
+   
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
