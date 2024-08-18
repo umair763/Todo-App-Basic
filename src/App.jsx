@@ -16,15 +16,27 @@ function App() {
 
     useEffect(() => {
         (async function () {
-            const { text } = await (await fetch(`/api/message`)).json();
-            setData(text);
+            try {
+                const response = await fetch(`/api/message`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const { text } = await response.json();
+                setData(text);
+            } catch (error) {
+                console.error('Error fetching message:', error);
+            }
         })();
-    });
+    }, []);
 
     useEffect(() => {
-        // Fetch tasks from the database
         fetch('/api/tasks')
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
             .then((data) => setAddNewTask(data))
             .catch((err) => console.error('Error fetching tasks:', err));
     }, []);
