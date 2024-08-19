@@ -1,83 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import TodoListParser from './components/TodoListParser';
 import AddTask from './components/AddTask';
 import AddTaskForm from './components/AddTaskForm';
 import DeleteTaskForm from './components/DeleteTaskForm';
 
+const todolist = [
+    {
+        color: 'red',
+        task: 'Demo Task',
+        date: '2024-8-21',
+        time: '12:00 am',
+        status: false,
+    },
+    {
+        color: 'yellow',
+        task: 'Demo',
+        date: '2024-8-22',
+        time: '11:00 am',
+        status: false,
+    },
+    {
+        color: 'green',
+        task: 'Task',
+        date: '2024-8-12',
+        time: '04:00 am',
+        status: false,
+    },
+    {
+        color: 'green',
+        task: 'Alpha',
+        date: '2024-8-12',
+        time: '04:00 am',
+        status: false,
+    },
+];
+
 function App() {
-    const [isAddFormVisible, setIsAddFormVisible] = useState(false);
-    const [isDeleteFormVisible, setIsDeleteFormVisible] = useState(false);
-    const [tasks, setTasks] = useState([]);
+    const [isAddFormVisible, setisAddFormVisible] = useState(false);
+    const [isDeleteFormVisible, setisDeleteFormVisible] = useState(false);
+    const [newtask, setAddNewTask] = useState(todolist);
     const [sortby, setSortBy] = useState('sortby');
-    const [searchTask, setSearchTask] = useState('');
+    const [searchtask, setSearchTask] = useState('');
 
-    // Fetch tasks
-    useEffect(() => {
-        fetch('/api/tasks')
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return res.json();
-            })
-            .then((data) => setTasks(data)) // Assuming data is an array of tasks from the database
-            .catch((err) => console.error('Error fetching tasks:', err));
-    }, []);
+    function handleAddNewTasks(task) {
+        setAddNewTask((newtask) => [...newtask, task]);
+    }
 
-    const handleIsAddFormVisible = () => {
-        setIsAddFormVisible((prev) => !prev);
-        if (isDeleteFormVisible) {
-            setIsDeleteFormVisible(false);
-        }
-    };
+    function handleisAddFormVisible() {
+        setisAddFormVisible((x) => !x);
+        isDeleteFormVisible ? setisDeleteFormVisible(false) : '';
+    }
 
-    const handleIsDeleteFormVisible = () => {
-        setIsDeleteFormVisible((prev) => !prev);
-        if (isAddFormVisible) {
-            setIsAddFormVisible(false);
-        }
-    };
+    function handleisDeleteFormVisible() {
+        setisDeleteFormVisible((x) => !x);
+        isAddFormVisible ? setisAddFormVisible(false) : '';
+    }
 
-    const handleAddNewTask = (task) => {
-        fetch('/api/tasks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(task),
-        })
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error('Failed to add task');
-                }
-                return res.json();
-            })
-            .then((data) => {
-                if (data.success) {
-                    setTasks((prevTasks) => [...prevTasks, task]);
-                }
-            })
-            .catch((err) => console.error('Error adding task:', err));
-    };
+    ////////////////////////////////////////////////////////////////////
 
-    const handleDeleteTask = (taskName) => {
-        setTasks(tasks.filter((task) => task.task !== taskName));
-    };
+    function handleDeleteTask(task) {
+        setAddNewTask(newtask.filter((el) => el.task !== task));
+    }
 
-    const toggleTaskStatus = (taskName) => {
-        setTasks((prevTasks) =>
+    function toggleTaskStatus(taskName) {
+        setAddNewTask((prevTasks) =>
             prevTasks.map((task) => (task.task === taskName ? { ...task, status: !task.status } : task))
         );
-    };
+    }
 
-    let sortedTasks = [...tasks];
+    function handleDeleteTask(task) {
+        setAddNewTask(newtask.filter((el) => el.task !== task));
+    }
+
+    function toggleTaskStatus(taskName) {
+        setAddNewTask((prevTasks) =>
+            prevTasks.map((task) => (task.task === taskName ? { ...task, status: !task.status } : task))
+        );
+    }
+
+    let sorted = [...newtask];
     if (sortby === 'Task') {
-        sortedTasks.sort((a, b) => a.task.localeCompare(b.task));
+        sorted = sorted.slice().sort((a, b) => a.task.localeCompare(b.task));
     }
 
     if (sortby === 'Important') {
-        sortedTasks.sort((a, b) => {
+        sorted = sorted.slice().sort((a, b) => {
+            // First, compare the dates (convert to Date objects for accurate comparison)
             const dateA = new Date(a.date.split('-').reverse().join('-'));
             const dateB = new Date(b.date.split('-').reverse().join('-'));
             const dateComparison = dateA - dateB;
@@ -86,68 +95,84 @@ function App() {
                 return dateComparison;
             }
 
-            const timeToMinutes = (time) => {
-                const [timePart, modifier] = time.split(' ');
-                let [hours, minutes] = timePart.split(':').map(Number);
-                if (modifier === 'PM' && hours !== 12) hours += 12;
-                if (modifier === 'AM' && hours === 12) hours = 0;
-                return hours * 60 + minutes;
-            };
+            // If the dates are the same, compare the times
+            const [timeA, modifierA] = a.time.split(' ');
+            const [hoursA, minutesA] = timeA.split(':');
+            const hours24A = (modifierA === 'PM' ? parseInt(hoursA, 10) + 12 : parseInt(hoursA, 10)) % 24;
 
-            return timeToMinutes(a.time) - timeToMinutes(b.time);
+            const [timeB, modifierB] = b.time.split(' ');
+            const [hoursB, minutesB] = timeB.split(':');
+            const hours24B = (modifierB === 'PM' ? parseInt(hoursB, 10) + 12 : parseInt(hoursB, 10)) % 24;
+
+            const timeAInMinutes = hours24A * 60 + parseInt(minutesA, 10);
+            const timeBInMinutes = hours24B * 60 + parseInt(minutesB, 10);
+
+            return timeAInMinutes - timeBInMinutes;
         });
-
-        if (sortedTasks.length > 0) {
-            sortedTasks[0].color = 'red';
+        // Set the color of the topmost task to 'red'
+        if (sorted.length > 0) {
+            sorted[0].color = 'red';
         }
     }
 
-    let searchedTasks = sortedTasks;
-    if (searchTask) {
-        searchedTasks = sortedTasks.filter((task) => task.task.toLowerCase().includes(searchTask.toLowerCase()));
+    let searched = sorted;
+    if (searchtask) {
+        searched = sorted.filter((el) => el.task.toLowerCase().includes(searchtask.toLowerCase()));
     }
 
-    const handleAllMarkedDelete = () => {
-        setTasks(tasks.filter((task) => !task.status));
-    };
+    function toggleTaskStatus(taskName) {
+        setAddNewTask((prevTasks) =>
+            prevTasks.map((task) => (task.task === taskName ? { ...task, status: !task.status } : task))
+        );
+    }
+
+    function handleAllMarkedDelete() {
+        setAddNewTask((Tasks) => Tasks.filter((el) => !el.status));
+    }
 
     return (
-        <div className="backgroundForm">
-            <div className="grid">
-                <div className="div-1">
-                    <div className="text">
-                        <h1>Todo App</h1>
-                        <h3>To-Do lists help us break life into small steps.</h3>
+        <>
+            <div className="backgroundForm">
+                <div className="grid">
+                    <div className="div-1">
+                        <div className="text">
+                            <h1>Todo App</h1>
+                            <h3>To-Do lists help us break life into small steps.</h3>
+                        </div>
+                        <AddTask
+                            SetisAddFormVisible={handleisAddFormVisible}
+                            setisDeleteFormVisible={handleisDeleteFormVisible}
+                            setSort={setSortBy}
+                            setSearch={setSearchTask}
+                            DeleteAllMarked={handleAllMarkedDelete}
+                        />
+                        <TodoListParser
+                            todolist={sorted}
+                            searched={searched}
+                            toggleTaskStatus={toggleTaskStatus}
+                            newtask={newtask}
+                        />
                     </div>
-                    <AddTask
-                        SetisAddFormVisible={handleIsAddFormVisible}
-                        setisDeleteFormVisible={handleIsDeleteFormVisible}
-                        setSort={setSortBy}
-                        setSearch={setSearchTask}
-                        DeleteAllMarked={handleAllMarkedDelete}
-                    />
-                    <TodoListParser
-                        todolist={sortedTasks}
-                        searched={searchedTasks}
-                        toggleTaskStatus={toggleTaskStatus}
-                        newtask={tasks}
-                    />
-                </div>
-                <div className="responsive">
-                    <div className="right-side">
-                        {isAddFormVisible && (
-                            <AddTaskForm addTask={handleAddNewTask} SetisAddFormVisible={handleIsAddFormVisible} />
-                        )}
-                        {isDeleteFormVisible && (
-                            <DeleteTaskForm
-                                deleteTask={handleDeleteTask}
-                                setisDeleteFormVisible={handleIsDeleteFormVisible}
-                            />
-                        )}
+                    <div className="respovsive">
+                        <div className="right-side">
+                            {isAddFormVisible ? (
+                                <AddTaskForm addTask={handleAddNewTasks} SetisAddFormVisible={handleisAddFormVisible} />
+                            ) : (
+                                ''
+                            )}
+                            {isDeleteFormVisible ? (
+                                <DeleteTaskForm
+                                    deleteTask={handleDeleteTask}
+                                    setisDeleteFormVisible={handleisDeleteFormVisible}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
