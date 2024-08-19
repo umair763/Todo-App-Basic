@@ -4,7 +4,7 @@ import './styles/DisplayTodoList.css';
 function DisplayTodoList({ list, toggleTaskStatus }) {
     
     function handleCheckboxChange() {
-        toggleTaskStatus(list.task);
+        toggleTaskStatus(list.task); 
     }
 
     return (

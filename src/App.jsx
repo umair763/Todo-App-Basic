@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TodoListParser from './components/TodoListParser';
 import AddTask from './components/AddTask';
@@ -12,24 +12,6 @@ function App() {
     const [sortby, setSortBy] = useState('sortby');
     const [searchTask, setSearchTask] = useState('');
 
-    const [message, setMessage] = useState('AOA!');
-
-    // Fetch message
-    useEffect(() => {
-        (async function fetchMessage() {
-            try {
-                const response = await fetch('/api/message');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const { text } = await response.json();
-                setMessage(text);
-            } catch (error) {
-                console.error('Error fetching message:', error);
-            }
-        })();
-    }, []);
-
     // Fetch tasks
     useEffect(() => {
         fetch('/api/tasks')
@@ -39,7 +21,7 @@ function App() {
                 }
                 return res.json();
             })
-            .then((data) => setTasks(data))
+            .then((data) => setTasks(data)) // Assuming data is an array of tasks from the database
             .catch((err) => console.error('Error fetching tasks:', err));
     }, []);
 
@@ -135,7 +117,6 @@ function App() {
                 <div className="div-1">
                     <div className="text">
                         <h1>Todo App</h1>
-                        {message}
                         <h3>To-Do lists help us break life into small steps.</h3>
                     </div>
                     <AddTask
