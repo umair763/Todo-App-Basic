@@ -16,12 +16,17 @@ const poolPromise = new sql.ConnectionPool(dbConfig)
     })
     .catch((err) => console.log('Database Connection Failed!', err));
 
+// Message endpoint
+app.get('/api/message', (req, res) => {
+    res.json({ text: 'Hello, world!' });
+});
+
 // Add Task
 app.post('/api/tasks', async (req, res) => {
     const { color, task, date, time, status } = req.body;
     try {
         const pool = await poolPromise;
-        const result = await pool
+        await pool
             .request()
             .input('Color', sql.NVarChar, color)
             .input('Task', sql.NVarChar, task)
