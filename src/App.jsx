@@ -5,10 +5,41 @@ import AddTask from './components/AddTask';
 import AddTaskForm from './components/AddTaskForm';
 import DeleteTaskForm from './components/DeleteTaskForm';
 
+const todolist = [
+    {
+        color: 'red',
+        task: 'Demo Task',
+        date: '2024-8-21',
+        time: '12:00 am',
+        status: false,
+    },
+    {
+        color: 'yellow',
+        task: 'Demo',
+        date: '2024-8-22',
+        time: '11:00 am',
+        status: false,
+    },
+    {
+        color: 'green',
+        task: 'Task',
+        date: '2024-8-12',
+        time: '04:00 am',
+        status: false,
+    },
+    {
+        color: 'green',
+        task: 'Alpha',
+        date: '2024-8-12',
+        time: '04:00 am',
+        status: false,
+    },
+];
+
 function App() {
     const [isAddFormVisible, setisAddFormVisible] = useState(false);
     const [isDeleteFormVisible, setisDeleteFormVisible] = useState(false);
-    const [newtask, setAddNewTask] = useState([]);
+    const [newtask, setAddNewTask] = useState(todolist);
     const [sortby, setSortBy] = useState('sortby');
     const [searchtask, setSearchTask] = useState('');
 
