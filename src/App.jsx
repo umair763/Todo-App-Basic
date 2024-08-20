@@ -12,13 +12,9 @@ function App() {
     const [sortby, setSortBy] = useState('sortby');
     const [searchtask, setSearchTask] = useState('');
 
-    useEffect(() => {
-        // Fetch tasks from the database
-        fetch('/api/tasks')
-            .then((res) => res.json())
-            .then((data) => setAddNewTask(data))
-            .catch((err) => console.error('Error fetching tasks:', err));
-    }, []);
+    function handleAddNewTasks(task) {
+        setAddNewTask((newtask) => [...newtask, task]);
+    }
 
     function handleisAddFormVisible() {
         setisAddFormVisible((x) => !x);
@@ -30,23 +26,6 @@ function App() {
         isAddFormVisible ? setisAddFormVisible(false) : '';
     }
 
-    function handleAddNewTasks(task) {
-        // Post new task to the database
-        fetch('/api/tasks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(task),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.success) {
-                    setAddNewTask((newtask) => [...newtask, task]);
-                }
-            })
-            .catch((err) => console.error('Error adding task:', err));
-    }
     ////////////////////////////////////////////////////////////////////
 
     function handleDeleteTask(task) {
